@@ -158,11 +158,11 @@ public class HospitalDemo {
         
         Hospital hospital = new Hospital("Kauvery Hospital", "Electronic City");
 
-        Doctor doc1 = new Doctor(1, "Allu Bhaai", "Cardiology");
-        Doctor doc2 = new Doctor(2, "Mahesh Bob", "Pediatrics");
+        Doctor doc1 = new Doctor(1, "Allu bhAAi", "Cardiology");
+        Doctor doc2 = new Doctor(2, "Mahesh Bob", "Orthopedic");
 
-        Patient pat1 = new Patient(101, "Aditya", 30);
-        Patient pat2 = new Patient(102, "KNV", 25);
+        Patient pat1 = new Patient(101, "Jagan", 45);
+        Patient pat2 = new Patient(102, "CBN", 75);
 
         hospital.addDoctor(doc1);
         hospital.addDoctor(doc2);
@@ -173,11 +173,26 @@ public class HospitalDemo {
         hospital.listPatients();
 
         Appointment appt1 = new Appointment(201, "2025-09-12", doc1, pat1, "Chest Pain");
+        Appointment appt2 = new Appointment(202, "2025-09-12", doc1, pat2, "Left Shoulder pain");
+        Appointment appt3 = new Appointment(203, "2025-09-12", doc2, pat1, "Elbow Pain");
+
         hospital.scheduleAppt(appt1);
+        hospital.scheduleAppt(appt2);
+        hospital.scheduleAppt(appt3);
         appt1.confirm();
+        appt2.confirm();
+        appt3.confirm();
 
         Bill bill1 = appt1.getBill();
+        Bill bill2 = appt2.getBill();
+        Bill bill3 = appt3.getBill();
+
         bill1.generate(250.00);
+        bill2.generate(300.00);
+        bill3.generate(300.00);
+
         bill1.pay();
+        bill2.pay();
+        bill3.pay();
     }
 }
