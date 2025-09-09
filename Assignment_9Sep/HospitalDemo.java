@@ -105,7 +105,7 @@ class Appointment {
 
     public void confirm() {
         System.out.println("Appointment #" + id + " on " + date + " confirmed for patient " 
-                           + patient.getName() + " with Dr. " + doctor.getName() + "suffering from " + illness);
+                           + patient.getName() + " with Dr. " + doctor.getName() + " suffering from " + illness);
     }
 
     public int getId() { return id; }
