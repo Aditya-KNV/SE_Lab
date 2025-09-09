@@ -46,7 +46,6 @@ class Hospital {
     }
 }
 
-// Doctor class
 class Doctor {
     private int docId;
     private String name;
@@ -62,13 +61,11 @@ class Doctor {
         System.out.println("Dr. " + name + " is checking patient " + p.getName());
     }
 
-    // Getters
     public int getDocId() { return docId; }
     public String getName() { return name; }
     public String getSpecialization() { return specialization; }
 }
 
-// Patient class
 class Patient {
     private int patientId;
     private String name;
@@ -84,13 +81,11 @@ class Patient {
         System.out.println("Patient Details - ID: " + patientId + ", Name: " + name + ", Age: " + age);
     }
 
-    // Getters
     public int getPatientId() { return patientId; }
     public String getName() { return name; }
     public int getAge() { return age; }
 }
 
-// Appointment class
 class Appointment {
     private int id;
     private String date;
@@ -113,14 +108,12 @@ class Appointment {
                            + patient.getName() + " with Dr. " + doctor.getName() + "suffering from " + illness);
     }
 
-    // Getters
     public int getId() { return id; }
     public Doctor getDoctor() { return doctor; }
     public Patient getPatient() { return patient; }
     public Bill getBill() { return bill; }
 }
 
-// Bill class
 class Bill {
     private int id;
     private double amount;
@@ -147,42 +140,34 @@ class Bill {
         }
     }
 
-    // Getters
     public int getId() { return id; }
     public double getAmount() { return amount; }
     public String getStatus() { return status; }
 }
 
-// Main driver to demonstrate hard-coded variables
 public class HospitalDemo {
     public static void main(String[] args) {
-        // Create hospital
+        
         Hospital hospital = new Hospital("Kauvery Hospital", "Electronic City");
 
-        // Hard-coded doctors
         Doctor doc1 = new Doctor(1, "Allu Bhaai", "Cardiology");
         Doctor doc2 = new Doctor(2, "Mahesh Bob", "Pediatrics");
 
-        // Hard-coded patients
         Patient pat1 = new Patient(101, "Aditya", 30);
         Patient pat2 = new Patient(102, "KNV", 25);
 
-        // Add to hospital
         hospital.addDoctor(doc1);
         hospital.addDoctor(doc2);
         hospital.addPatient(pat1);
         hospital.addPatient(pat2);
 
-        // List current doctors and patients
         hospital.listDoctors();
         hospital.listPatients();
 
-        // Schedule an appointment
         Appointment appt1 = new Appointment(201, "2025-09-12", doc1, pat1, "Chest Pain");
         hospital.scheduleAppt(appt1);
         appt1.confirm();
 
-        // Generate and pay bill
         Bill bill1 = appt1.getBill();
         bill1.generate(250.00);
         bill1.pay();
